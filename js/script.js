@@ -1,16 +1,16 @@
 const templates = [
     
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1339/1/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1148/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1329/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1331/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1252/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1253/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1170/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1151/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1057/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1056/",
-  "http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1467/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1339/1/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1148/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1329/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1331/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1252/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1253/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1170/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1151/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1057/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1056/",
+  "https://v2dio.abbiamo.rotto.tutto.leadrocktest.com/LRPROMO-1467/",
 ];
 const wrapper = document.querySelector("#container");
 
