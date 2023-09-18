@@ -11,14 +11,16 @@ const templates = [
   "LRPROMO-1331",
   "LRPROMO-1339/1",
   "LRPROMO-1365",
+  "LRPROMO-1366",
   "LRPROMO-1368",
   "LRPROMO-1387",
   "LRPROMO-1396",
   "LRPROMO-1429",
+  "tretjakov.n/LRPROMO-1433/1",
   "LRPROMO-1436/1",
+  "LRPROMO-1444",
   "LRPROMO-1460",
   "LRPROMO-1467",
-  "tretjakov.n/LRPROMO-1433/1",
   "LRPROMO-1516",
 ];
 
