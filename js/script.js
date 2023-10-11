@@ -27,15 +27,79 @@ const templates = [
   "LRPROMO-1580",
 ];
 
+let currentTemp = 0;
 const wrapper = document.querySelector("#container");
+const nextBtn = document.querySelector("#next");
+const prevBtn = document.querySelector("#prev");
+const arrowsContainer = document.querySelector(".arrows");
+const valuesBtns = document.querySelector("#values");
+const allBtn = document.querySelector("#allBtn");
 
-const temp = templates.map((item) => {
-  return `<iframe
-  src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${item}/"
-  frameborder="1"
-  width="520px"
-  height="500px"
-></iframe>`;
+nextBtn.addEventListener("click", () => {
+  currentTemp++;
+  if (currentTemp !== templates.length) {
+    render(currentTemp);
+  } else {
+    currentTemp = templates.length - 1;
+  }
 });
 
-wrapper.innerHTML += temp.join("");
+prevBtn.addEventListener("click", () => {
+  currentTemp--;
+  if (currentTemp !== -1) {
+    render(currentTemp);
+  } else {
+    currentTemp = 0;
+  }
+});
+
+valuesBtns.innerHTML += templates
+  .map((item, index) => {
+    return `<button id="land-${index}" class="selectTemp">${
+      index + 1
+    }</button>`;
+  })
+  .join("");
+
+const selectBtns = document.querySelectorAll(".selectTemp");
+selectBtns.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    render(e.target.id.replace("land-", ""));
+  });
+});
+
+allBtn.addEventListener("click", () => {
+  if (arrowsContainer.classList.contains("none")) {
+    arrowsContainer.classList.remove("none");
+    render(currentTemp, false);
+  } else {
+    arrowsContainer.classList.add("none");
+    render(currentTemp, true);
+  }
+});
+
+const render = (currentTemp = 0, all = false) => {
+  if (!all) {
+    wrapper.innerHTML = "";
+    wrapper.innerHTML = `<iframe
+    src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${templates[currentTemp]}/"
+    frameborder="1"
+    width="520px"
+    height="500px"
+    ></iframe>`;
+  } else {
+    wrapper.innerHTML = "";
+    wrapper.innerHTML += templates
+      .map((item, index) => {
+        return `<iframe
+    src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${item}/"
+    frameborder="1"
+    width="520px"
+    height="500px"
+    ></iframe>`;
+      })
+      .join("");
+  }
+};
+
+render(currentTemp);
