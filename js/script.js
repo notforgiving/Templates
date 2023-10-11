@@ -25,6 +25,7 @@ const templates = [
   "LRPROMO-1575",
   "LRPROMO-1576",
   "LRPROMO-1580",
+  "LRPROMO-1585",
 ];
 
 let currentTemp = 0;
