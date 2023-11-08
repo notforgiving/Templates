@@ -27,8 +27,6 @@ const templates = [
   "LRPROMO-1580",
   "LRPROMO-1585",
   "LRPROMO-1587",
-  "LRPROMO-1756",
-  "LRPROMO-1786",
   "LRPROMO-1642",
   "LRPROMO-1800",
 ];
