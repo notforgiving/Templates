@@ -29,15 +29,24 @@ const templates = [
   "LRPROMO-1587",
   "LRPROMO-1642",
   "LRPROMO-1800",
+  "LRPROMO-1589",
+  "LRPROMO-1588",
+  "LRPROMO-1577",
+  "LRPROMO-1613",
+  "LRPROMO-1515",
+  "LRPROMO-1853",
+  "LRPROMO-1856",
+  "LRPROMO-1903",
+  "LRPROMO-1757",
 ];
 
-let currentTemp = 0;
 const wrapper = document.querySelector("#container");
 const nextBtn = document.querySelector("#next");
 const prevBtn = document.querySelector("#prev");
 const arrowsContainer = document.querySelector(".arrows");
 const valuesBtns = document.querySelector("#values");
 const allBtn = document.querySelector("#allBtn");
+let currentTemp = templates.length - 1;
 
 nextBtn.addEventListener("click", () => {
   currentTemp++;
@@ -89,7 +98,7 @@ const render = (currentTemp = 0, all = false) => {
     src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${templates[currentTemp]}/"
     frameborder="1"
     width="520px"
-    height="500px"
+    height="650px"
     ></iframe>`;
   } else {
     wrapper.innerHTML = "";
