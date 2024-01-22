@@ -38,6 +38,15 @@ const templates = [
   "LRPROMO-1856",
   "LRPROMO-1903",
   "LRPROMO-1757",
+  "LRPROMO-1866",
+  "LRPROMO-1835",
+  "LRPROMO-1836",
+  "LRPROMO-1785",
+  "LRPROMO-1867",
+  "LRPROMO-1997",
+  "LRPROMO-1907",
+  "LRPROMO-1952",
+  "LRPROMO-1725",
 ];
 
 const wrapper = document.querySelector("#container");
