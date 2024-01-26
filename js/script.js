@@ -125,3 +125,5 @@ const render = (currentTemp = 0, all = false) => {
 };
 
 render(currentTemp);
+
+console.log("Ты уже сверстала  - " + templates.length + " лендов");
