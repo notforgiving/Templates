@@ -47,6 +47,11 @@ const templates = [
   "LRPROMO-1907",
   "LRPROMO-1952",
   "LRPROMO-1725",
+  "LRPROMO-1969",
+  "LRPROMO-1984",
+  "LRPROMO-1983",
+  "LRPROMO-1970",
+  "LRPROMO-2095",
 ];
 
 const wrapper = document.querySelector("#container");
