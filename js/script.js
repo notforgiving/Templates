@@ -55,6 +55,11 @@ const templates = [
   "LRPROMO-1758",
   "LRPROMO-2047",
   "LRPROMO-2066",
+  "LRPROMO-2070",
+  "LRPROMO-2048",
+  "LRPROMO-2117",
+  "LRPROMO-2097",
+  "LRPROMO-2125",
 ];
 
 const wrapper = document.querySelector("#container");
@@ -63,6 +68,8 @@ const prevBtn = document.querySelector("#prev");
 const arrowsContainer = document.querySelector(".arrows");
 const valuesBtns = document.querySelector("#values");
 const allBtn = document.querySelector("#allBtn");
+const showMore = document.querySelector('#show_more');
+
 let currentTemp = templates.length - 1;
 
 nextBtn.addEventListener("click", () => {
@@ -108,6 +115,9 @@ allBtn.addEventListener("click", () => {
   }
 });
 
+let lengthTemplatesArray = templates.length;
+const stopper = 100;
+
 const render = (currentTemp = 0, all = false) => {
   if (!all) {
     wrapper.innerHTML = "";
@@ -118,20 +128,28 @@ const render = (currentTemp = 0, all = false) => {
     height="650px"
     ></iframe>`;
   } else {
+    let revertArray = [];
     wrapper.innerHTML = "";
-    wrapper.innerHTML += templates
-      .map((item, index) => {
-        return `<iframe
-    src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${item}/"
-    frameborder="1"
-    width="520px"
-    height="500px"
-    ></iframe>`;
-      })
+
+    for (let index = lengthTemplatesArray - 1; index >= 0; index--) {
+      revertArray.push(templates[index]);
+    }
+
+    wrapper.innerHTML += revertArray
+      .map((item, index) =>
+        index <= stopper
+          ? `<iframe
+      src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${item}/"
+      frameborder="1"
+      width="520px"
+      height="500px"
+      ></iframe>`
+          : ""
+      )
       .join("");
   }
 };
 
 render(currentTemp);
 
-console.log("Ты уже сверстала  - " + templates.length + " лендов");
+console.log("Ты уже сверстал  - " + lengthTemplatesArray + " лендов");
