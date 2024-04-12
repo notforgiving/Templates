@@ -60,6 +60,9 @@ const templates = [
   "LRPROMO-2117",
   "LRPROMO-2097",
   "LRPROMO-2125",
+  "LRPROMO-2226",
+  "LRPROMO-2151",
+  "LRPROMO-2124",
 ];
 
 const wrapper = document.querySelector("#container");
