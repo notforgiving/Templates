@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  padding: 40px 0 40px 40px;
+  background: #181818;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #55ff00;
+  border-radius: 0px;
+}

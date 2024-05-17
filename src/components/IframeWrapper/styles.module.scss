@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 14px;
+    width: 100%;
+    background: #55FF00;
+    background: linear-gradient(0deg, #55FF00, #52E26A00);
+  }
+
+}
