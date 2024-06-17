@@ -57,106 +57,207 @@ const templates = [
   "LRPROMO-2066",
   "LRPROMO-2070",
   "LRPROMO-2048",
-  "LRPROMO-2117",
   "LRPROMO-2097",
+  "LRPROMO-2117",
   "LRPROMO-2125",
   "LRPROMO-2226",
   "LRPROMO-2151",
   "LRPROMO-2124",
-  "LRPROMO-2283",
-  "LRPROMO-2264",
+  "LRPROMO-2238",
   "LRPROMO-2263",
+  "LRPROMO-2264",
+  "LRPROMO-2283",
+  "LRPROMO-2299",
   "LRPROMO-2300",
+  "LRPROMO-2301",
+  "LRPROMO-2308",
+  "LRPROMO-2309",
+  "LRPROMO-2345",
+  "LRPROMO-2349",
+  "LRPROMO-2351/1/",
+  "LRPROMO-2351/2/",
+  "LRPROMO-2357",
+  "LRPROMO-2370",
 ];
 
-const wrapper = document.querySelector("#container");
-const nextBtn = document.querySelector("#next");
-const prevBtn = document.querySelector("#prev");
-const arrowsContainer = document.querySelector(".arrows");
-const valuesBtns = document.querySelector("#values");
-const allBtn = document.querySelector("#allBtn");
-const showMore = document.querySelector('#show_more');
+const pagination = document.querySelector(".pagination");
+if (templates.length == 0) {
+  pagination.classList.add("dnone");
+}
 
 let currentTemp = templates.length - 1;
 
-nextBtn.addEventListener("click", () => {
-  currentTemp++;
-  if (currentTemp !== templates.length) {
-    render(currentTemp);
-  } else {
-    currentTemp = templates.length - 1;
-  }
-});
+const container = document.querySelector("#container");
 
-prevBtn.addEventListener("click", () => {
-  currentTemp--;
-  if (currentTemp !== -1) {
-    render(currentTemp);
-  } else {
-    currentTemp = 0;
-  }
-});
+const nextFrameBtn = document.querySelector(".next");
+const prevFrameBtn = document.querySelector(".prev");
 
-valuesBtns.innerHTML += templates
-  .map((item, index) => {
-    return `<button id="land-${index}" class="selectTemp">${
-      index + 1
-    }</button>`;
-  })
-  .join("");
-
-const selectBtns = document.querySelectorAll(".selectTemp");
-selectBtns.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    render(e.target.id.replace("land-", ""));
-  });
-});
-
-allBtn.addEventListener("click", () => {
-  if (arrowsContainer.classList.contains("none")) {
-    arrowsContainer.classList.remove("none");
-    render(currentTemp, false);
-  } else {
-    arrowsContainer.classList.add("none");
-    render(currentTemp, true);
-  }
-});
-
-let lengthTemplatesArray = templates.length;
-const stopper = 100;
-
-const render = (currentTemp = 0, all = false) => {
-  if (!all) {
-    wrapper.innerHTML = "";
-    wrapper.innerHTML = `<iframe
-    src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${templates[currentTemp]}/"
-    frameborder="1"
-    width="520px"
-    height="650px"
-    ></iframe>`;
-  } else {
-    let revertArray = [];
-    wrapper.innerHTML = "";
-
-    for (let index = lengthTemplatesArray - 1; index >= 0; index--) {
-      revertArray.push(templates[index]);
-    }
-
-    wrapper.innerHTML += revertArray
-      .map((item, index) =>
-        index <= stopper
-          ? `<iframe
+const render = (item) => {
+  container.innerHTML = `<iframe
       src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${item}/"
       frameborder="1"
       width="520px"
-      height="500px"
-      ></iframe>`
-          : ""
-      )
-      .join("");
+      height="700px"
+      ></iframe>`;
+};
+
+const checkNextAndPrevBtns = () => {
+  if (nextFrameBtn && prevFrameBtn) {
+    if (currentTemp === templates.length - 1) {
+      nextFrameBtn.setAttribute("disabled", true);
+      prevFrameBtn.removeAttribute("disabled");
+    } else if (currentTemp === 1) {
+      prevFrameBtn.setAttribute("disabled", true);
+      nextFrameBtn.removeAttribute("disabled");
+    } else {
+      nextFrameBtn.removeAttribute("disabled");
+      prevFrameBtn.removeAttribute("disabled");
+    }
   }
 };
 
-render(currentTemp);
+if (container) {
+  render(templates[currentTemp]);
+  checkNextAndPrevBtns();
+}
 
-console.log("Ты уже сверстал  - " + lengthTemplatesArray + " лендов");
+const pag_container = document.querySelector(".prev_container");
+
+const paginationStruct = (type) => {
+  const decrimentPart = `<button data-target="decriment">...</button>`;
+  const incrimentPart = `<button data-target="incriment">...</button>`;
+
+  switch (type) {
+    case "start": {
+      return `
+        <button data-target="1"
+         class="${currentTemp === 1 ? "active" : ""}">
+         1
+        </button>
+
+        <button data-target="2"
+         class="${currentTemp === 2 ? "active" : ""}">
+        2
+        </button>
+
+        <button data-target="3"
+         class="${currentTemp === 3 ? "active" : ""}">
+        3
+        </button>
+
+        ${incrimentPart}
+
+         <button data-target="${templates.length - 1}">
+         ${templates.length - 1}
+         </button>
+        `;
+    }
+    case "center": {
+      return `
+        <button data-target="1">1</button>
+
+       ${decrimentPart}
+
+        <button data-target="${currentTemp - 1}">
+        ${currentTemp - 1}
+        </button>
+        <button data-target="${currentTemp}" class="active">
+        ${currentTemp}
+        </button>
+        <button data-target="${currentTemp + 1}">
+        ${currentTemp + 1}
+        </button>
+
+        ${incrimentPart}
+
+        <button data-target="${templates.length - 1}">
+        ${templates.length - 1}
+        </button>
+        `;
+    }
+    case "end": {
+      return `
+        <button data-target="1">1</button>
+
+        ${decrimentPart}
+
+        <button data-target="${templates.length - 3}" 
+        class="${currentTemp === templates.length - 3 ? "active" : ""}"
+        >
+        ${templates.length - 3}
+        </button>
+
+        <button data-target="${templates.length - 2}"
+        class="${currentTemp === templates.length - 2 ? "active" : ""}"
+        >
+        ${templates.length - 2}
+        </button>
+
+        <button data-target="${templates.length - 1}"
+        class="${currentTemp === templates.length - 1 ? "active" : ""}"
+        >
+        ${templates.length - 1}
+        </button>
+        `;
+    }
+  }
+};
+
+const renderPagination = () => {
+  if (Math.abs(currentTemp - templates.length) <= 3) {
+    pag_container.innerHTML = paginationStruct("end");
+  } else if (Math.abs(currentTemp - 0) <= 3) {
+    pag_container.innerHTML = paginationStruct("start");
+  } else pag_container.innerHTML = paginationStruct("center");
+
+  const buttons = pag_container.querySelectorAll("button");
+  buttons.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      if (btn.getAttribute("data-target") === "decriment") {
+        currentTemp -= 4;
+      } else if (btn.getAttribute("data-target") === "incriment") {
+        currentTemp += 4;
+      } else {
+        currentTemp = Number(btn.getAttribute("data-target"));
+      }
+
+      renderPagination();
+      render(templates[currentTemp]);
+      checkNextAndPrevBtns();
+    })
+  );
+};
+
+if (pag_container) {
+  if (templates.length !== 0) {
+    renderPagination();
+  }
+}
+
+const togglePage = (direction) => {
+  switch (direction) {
+    case "next": {
+      currentTemp++;
+      renderPagination();
+      render(templates[currentTemp]);
+      checkNextAndPrevBtns();
+      break;
+    }
+    case "prev": {
+      currentTemp--;
+      renderPagination();
+      render(templates[currentTemp]);
+      checkNextAndPrevBtns();
+      break;
+    }
+  }
+};
+
+if (nextFrameBtn && prevFrameBtn) {
+  nextFrameBtn.addEventListener("click", () => {
+    togglePage("next");
+  });
+  prevFrameBtn.addEventListener("click", () => {
+    togglePage("prev");
+  });
+}

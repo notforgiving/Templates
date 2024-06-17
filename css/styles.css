@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #0299ff;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+iframe {
+  border: none;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+}
+
+svg {
+  vertical-align: middle;
+  flex: none;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
+body {
+  background: #eeeff3;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #000;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+.pagination.dnone {
+  display: none;
+}
+.pagination button {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 1px 1px 13px 0px #ccc;
+  padding: 10px 20px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.pagination button:hover {
+  background: #e4a1a3;
+}
+.pagination button.active {
+  background: #e6454b;
+  color: #fff;
+}
+.pagination button.prev, .pagination button.next {
+  color: #e6454b;
+}
+.pagination button.prev:hover, .pagination button.next:hover {
+  background: #e58d90;
+  color: #fff;
+}
+.pagination button.prev:disabled, .pagination button.next:disabled {
+  background: #ccc;
+  color: #000;
+  pointer-events: none;
+}
+.pagination button.prev svg, .pagination button.next svg {
+  width: 12px;
+  height: auto;
+}
+.pagination_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+iframe {
+  box-shadow: 1px 1px 13px 0px #ccc;
+  background: #fff;
+}/*# sourceMappingURL=styles.css.map */
