@@ -80,8 +80,8 @@ const templates = [
   "LRPROMO-2370",
 ];
 
-let view = "ONE";
-let limitAllViews = 10;
+let view = "ALL";
+let limitAllViews = 20;
 
 const pagination = document.querySelector(".pagination");
 if (templates.length == 0) {
@@ -139,10 +139,7 @@ const checkNextAndPrevBtns = () => {
   }
 };
 
-if (container) {
-  render(templates[currentTemp]);
-  checkNextAndPrevBtns();
-}
+
 
 const pag_container = document.querySelector(".prev_container");
 
@@ -287,23 +284,28 @@ if (nextFrameBtn && prevFrameBtn) {
 const selectRender = () => {
   switch (view) {
     case "ALL": {
-      pagination.classList.toggle("dnone");
-      container.classList.toggle("all");
-      templates.reverse()
-      render(templates[currentTemp]);
+      pagination.classList.add("dnone");
+      container.classList.add("all");
+      renderAll();
       checkNextAndPrevBtns();
       view = "ONE";
       break;
     }
     case "ONE": {
-      pagination.classList.toggle("dnone");
-      container.classList.toggle("all");
-      renderAll();
+      pagination.classList.remove("dnone");
+      container.classList.remove("all");
+      templates.reverse();
+      render(templates[currentTemp]);
       view = "ALL";
       break;
     }
   }
 };
+
+if (container) {
+  selectRender()
+  checkNextAndPrevBtns();
+}
 
 const changeView = document.querySelector(".changeView");
 
