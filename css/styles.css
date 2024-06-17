@@ -61,6 +61,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   color: #000;
+  padding: 10px 0;
 }
 
 .container {
@@ -68,6 +69,10 @@ body {
   display: flex;
   justify-content: center;
   padding: 10px;
+}
+.container.all {
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .pagination {
@@ -121,4 +126,18 @@ body {
 iframe {
   box-shadow: 1px 1px 13px 0px #ccc;
   background: #fff;
+}
+
+.changeView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.changeView button {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 1px 1px 13px 0px #ccc;
+  padding: 10px 20px;
+  font-weight: 700;
+  transition: 0.3s;
 }/*# sourceMappingURL=styles.css.map */

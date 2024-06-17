@@ -80,6 +80,9 @@ const templates = [
   "LRPROMO-2370",
 ];
 
+let view = "ONE";
+let limitAllViews = 10;
+
 const pagination = document.querySelector(".pagination");
 if (templates.length == 0) {
   pagination.classList.add("dnone");
@@ -99,6 +102,26 @@ const render = (item) => {
       width="520px"
       height="700px"
       ></iframe>`;
+};
+
+const renderAll = (more = 0) => {
+  if (more === 0) {
+    container.innerHTML = "";
+  }
+
+  templates
+    .reverse()
+    .slice(more, limitAllViews + more)
+    .forEach((item, index) => {
+      if (index <= limitAllViews) {
+        container.innerHTML += `<iframe
+      src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${item}/"
+      frameborder="1"
+      width="520px"
+      height="700px"
+      ></iframe>`;
+      }
+    });
 };
 
 const checkNextAndPrevBtns = () => {
@@ -261,3 +284,42 @@ if (nextFrameBtn && prevFrameBtn) {
     togglePage("prev");
   });
 }
+const selectRender = () => {
+  switch (view) {
+    case "ALL": {
+      pagination.classList.toggle("dnone");
+      container.classList.toggle("all");
+      templates.reverse()
+      render(templates[currentTemp]);
+      checkNextAndPrevBtns();
+      view = "ONE";
+      break;
+    }
+    case "ONE": {
+      pagination.classList.toggle("dnone");
+      container.classList.toggle("all");
+      renderAll();
+      view = "ALL";
+      break;
+    }
+  }
+};
+
+const changeView = document.querySelector(".changeView");
+
+if (changeView) {
+  changeView.addEventListener("click", () => {
+    selectRender();
+  });
+}
+
+window.addEventListener("scroll", () => {
+  if (
+    window.innerHeight + window.scrollY >=
+    document.documentElement.scrollHeight
+  ) {
+    if (view === "ALL") {
+      renderAll(limitAllViews);
+    }
+  }
+});
