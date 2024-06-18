@@ -97,7 +97,7 @@ const prevFrameBtn = document.querySelector(".prev");
 
 const render = (item) => {
   container.innerHTML = `<iframe
-      src="http://v2dio.abbiamo.rotto.tutto.leadrocktest.com/${item}/"
+      src="https://templates.fair-2sale.com/${item}/"
       frameborder="1"
       width="520px"
       height="700px"
