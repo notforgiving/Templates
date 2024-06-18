@@ -80,7 +80,7 @@ const templates = [
   "LRPROMO-2370",
 ];
 
-let view = "ONE";
+let view = localStorage.getItem("viewTemplates") || "ONE";
 let limitAllViews = 20;
 const targetURL = "https://templates.fair-2sale.com";
 
@@ -292,7 +292,6 @@ const selectRender = () => {
     case "ONE": {
       pagination.classList.remove("dnone");
       container.classList.remove("all");
-      templates.reverse();
       render(templates[currentTemp]);
       break;
     }
@@ -308,7 +307,11 @@ const changeView = document.querySelector(".changeView");
 
 if (changeView) {
   changeView.addEventListener("click", () => {
+    if (view === "ALL") {
+      templates.reverse();
+    }
     view = view === "ONE" ? "ALL" : "ONE";
+    localStorage.setItem("viewTemplates", view);
     selectRender();
   });
 }
