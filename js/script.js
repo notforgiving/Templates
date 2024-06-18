@@ -80,7 +80,7 @@ const templates = [
   "LRPROMO-2370",
 ];
 
-let view = "ALL";
+let view = "ONE";
 let limitAllViews = 20;
 const targetURL = "https://templates.fair-2sale.com";
 
