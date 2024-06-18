@@ -82,8 +82,7 @@ const templates = [
 
 let view = "ALL";
 let limitAllViews = 20;
-const targetURL = 'https://templates.fair-2sale.com';
-
+const targetURL = "https://templates.fair-2sale.com";
 
 const pagination = document.querySelector(".pagination");
 if (templates.length == 0) {
@@ -140,7 +139,6 @@ const checkNextAndPrevBtns = () => {
     }
   }
 };
-
 
 const pag_container = document.querySelector(".prev_container");
 
@@ -289,7 +287,6 @@ const selectRender = () => {
       container.classList.add("all");
       renderAll();
       checkNextAndPrevBtns();
-      view = "ONE";
       break;
     }
     case "ONE": {
@@ -297,14 +294,13 @@ const selectRender = () => {
       container.classList.remove("all");
       templates.reverse();
       render(templates[currentTemp]);
-      view = "ALL";
       break;
     }
   }
 };
 
 if (container) {
-  selectRender()
+  selectRender();
   checkNextAndPrevBtns();
 }
 
@@ -312,6 +308,7 @@ const changeView = document.querySelector(".changeView");
 
 if (changeView) {
   changeView.addEventListener("click", () => {
+    view = view === "ONE" ? "ALL" : "ONE";
     selectRender();
   });
 }
