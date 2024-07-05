@@ -82,6 +82,7 @@ const templates = [
   "LRPROMO-2388",
   "LRPROMO-2405",
   "LRPROMO-2387",
+  "LRPROMO-2460",
 ];
 
 let view = localStorage.getItem("viewTemplates") || "ONE";
