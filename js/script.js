@@ -294,6 +294,17 @@ if (nextFrameBtn && prevFrameBtn) {
   prevFrameBtn.addEventListener("click", () => {
     togglePage("prev");
   });
+  document.addEventListener("keydown", (event) => {
+    const key = event.key;
+    switch (key) {
+      case "ArrowLeft":
+        togglePage("prev");
+        break;
+      case "ArrowRight":
+        togglePage("next");
+        break;
+    }
+  });
 }
 const selectRender = () => {
   switch (view) {
